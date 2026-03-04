@@ -1,0 +1,107 @@
+/* Reset default spacing */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fb;
+    text-align: center;
+}
+
+/* Title */
+h2 {
+    margin-top: 20px;
+    color: #0077cc;
+}
+
+/* Chat container */
+#chatBox {
+    width: 60%;
+    height: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* User message */
+.user {
+    background-color: #d1e7ff;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+/* Bot message */
+.bot {
+    background-color: #e8f5e9;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+/* Input box */
+input {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #005fa3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #chatBox {
+        width: 90%;
+        height: 300px;
+    }
+
+    input {
+        width: 65%;
+    }
+}
+/* User message on right */
+.user {
+    background-color: #d1e7ff;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 12px;
+    max-width: 70%;
+    text-align: right;
+    margin-left: auto; /* pushes to right */
+}
+
+/* Bot message on left */
+.bot {
+    background-color: #e8f5e9;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 12px;
+    max-width: 70%;
+    text-align: left;
+    margin-right: auto; /* pushes to left */
+}
+
+/* Smooth chat scroll */
+#chatBox {
+    scroll-behavior: smooth;
+}
