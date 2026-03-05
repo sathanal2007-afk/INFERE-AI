@@ -54,19 +54,27 @@ sessions={}
 # -----------------------------
 
 import os
+import joblib
 import gdown
 
-general_model = joblib.load("general_model.pkl")
-vectorizer = joblib.load("vectorizer.pkl")
-
+# File paths
+GENERAL_MODEL_PATH = "general_model.pkl"
+VECTORIZER_PATH = "vectorizer.pkl"
 SEPSIS_MODEL_PATH = "sepsis_model.pkl"
 
-# Download model if not present
+# Load general disease model
+general_model = joblib.load(GENERAL_MODEL_PATH)
+vectorizer = joblib.load(VECTORIZER_PATH)
+
+# Download sepsis model if not present
 if not os.path.exists(SEPSIS_MODEL_PATH):
     url = "https://drive.google.com/uc?id=1kPcIP0AEkYnebsDGWGSKt9y9F3V00voh"
     gdown.download(url, SEPSIS_MODEL_PATH, quiet=False)
 
+# Load sepsis model
 sepsis_model = joblib.load(SEPSIS_MODEL_PATH)
+
+# Get feature names
 sepsis_features = sepsis_model.feature_names_in_
 
 # -----------------------------
@@ -372,4 +380,5 @@ def sepsis_check(request: SepsisRequest):
 
 @app.get("/")
 def home():
+
     return {"message": "AI Healthcare Chatbot is running"}
